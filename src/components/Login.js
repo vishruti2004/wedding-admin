@@ -5,8 +5,8 @@ import { ToastContainer, toast } from 'react-toastify';
 const Login = () => {
   const navigate = useNavigate();
   const [adminLogin, setAdminLogin] = useState({
-    email: "",
-    password: ""
+    email: "admin",
+    password: "admin"
   })
   let name, value;
   const handleChange = (e) => {
@@ -18,26 +18,37 @@ const Login = () => {
   const Adminlogin = async (e) => {
     e.preventDefault();
     const { email, password } = adminLogin;
-    const res = await fetch("/admin/adminlogin", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json"
-      },
-      body: JSON.stringify({
-        email, password
-      })
-    })
-    const data = await res.json();
-    if (data.status === false) {
-      const notify = () => toast.error(data.message);
-      notify();
-    } else {
-      const notify = () => toast.success(data.message);
+
+    if(email!=="admin" &&password!=="admin"){
+      const notify = () => toast.error("khotu chee");
+        notify();
+    }else{
+      const notify = () => toast.success("sachu che");
       notify();
       setTimeout(() => {
         navigate('/dashboard')
       }, 2000)
     }
+    // const res = await fetch("/admin/adminlogin", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-type": "application/json"
+    //   },
+    //   body: JSON.stringify({
+    //     email, password
+    //   })
+    // })
+    // const data = await res.json();
+    // if (data.status === false) {
+    //   const notify = () => toast.error(data.message);
+    //   notify();
+    // } else {
+    //   const notify = () => toast.success(data.message);
+    //   notify();
+    //   setTimeout(() => {
+    //     navigate('/dashboard')
+    //   }, 2000)
+    // }
   }
 
   // console.log(adminLogin, "adminLogin");

@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Sidebar from "./components/Sidebar";
 import { Routes, Route } from "react-router-dom";
@@ -7,6 +6,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import "jquery/dist/jquery.js";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
+import Home from "./components/Home";
 import AddProduct from "./components/AddProduct";
 import AddDecorate from "./components/AddDecorate";
 import AddGroomwear from "./components/AddGroomwear";
@@ -32,7 +32,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<AddProduct />} />
+        <Route path="/dashboard" element={<Home />} />
         <Route path="/addbridewear" element={<AddProduct />} />
         <Route path="/adddecorate" element={<AddDecorate />} />
         <Route path="/addgroomwear" element={<AddGroomwear />} />
